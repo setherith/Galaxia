@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import string
 import Colours as c
 
 class galaxy_map:
@@ -40,12 +41,22 @@ class galaxy_map:
         for s in range(0, self.star_density):
             star_x = random.randint(0, self.screen_width)
             star_y = random.randint(0, self.screen_height)
-            stars.append((star_x, star_y))
+            stars.append((star_x, star_y, self.generate_star_name()))
         return stars
+
+    def generate_star_name(self):
+        name = ''
+        for x in range(0, 3):
+            name += str(random.randint(0, 9))
+        name += '-'
+        for x in range(0, 6):
+            name += string.ascii_uppercase[random.randint(0, len(string.ascii_uppercase) - 1)]
+        return name
 
     def draw(self):
         pygame.display.set_caption("Test")
         self.clock = pygame.time.Clock()
+        pygame.mouse.set_visible(False)
         self.done = False
         while not self.done:
             for event in pygame.event.get():
@@ -65,15 +76,22 @@ class galaxy_map:
             # render varying strength stars
             if self.stars_generated == False:
                 stars = self.generate_stars()
+                for s in stars:
+                    print(s[2])
                 self.stars_generated = True
 
             for s in stars:
                 colour = c.random
                 pygame.draw.line(self.display, colour, (s[0], s[1]), (s[0], s[1] + 1))
 
-            # render star names
-
             # draw cross hairs
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.draw.line(self.display, c.yellow, (0, mouse_pos[1]), (self.screen_width, mouse_pos[1]))
+            pygame.draw.line(self.display, c.yellow, (mouse_pos[0], 0), (mouse_pos[0], self.screen_height))
+
+            # render coords in corner
+
+            # render star names
 
             # draw lock on box
 
