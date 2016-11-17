@@ -18,14 +18,20 @@ class galaxy_map:
 
     def generate_background(self):
         starfield = pygame.Surface((self.screen_width, self.screen_height))
-        blue1 = random.randint(0, 155)
-        blue2 = random.randint(0, 155)
-        blue3 = random.randint(0, 155)
-        blue4 = random.randint(0, 155)
+        blue1 = random.randint(0, 255)
+        blue2 = random.randint(0, 255)
+        blue3 = random.randint(0, 255)
+        blue4 = random.randint(0, 255)
 
         for x in range(0, self.screen_width):
             for y in range(0, self.screen_height):
-                starfield.set_at((x, y), (0, 0, int((blue1 + blue2) * x / self.screen_width)))
+                diff_v = (blue1 - blue2) * x / self.screen_width
+                diff_h = (blue3 - blue4) * y / self.screen_height
+                avg = abs(diff_v + diff_h)
+                if avg < blue4:
+                    starfield.set_at((x, y), (0, 0, int(blue4 - avg)))
+                else:
+                    starfield.set_at((x, y), (0, 0, int(avg - blue4)))
 
         return starfield
 
