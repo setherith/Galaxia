@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class MenuScreen extends JPanel {
 
-	private final double VERSION = 0.01;
+	private final double VERSION = 0.1;
 	private final int WIDTH = 800;
 	private final int HEIGHT = 600;
 
@@ -40,7 +40,7 @@ public class MenuScreen extends JPanel {
 			
 		}
 		
-		app = new JFrame(String.format("Galaxia v%1.2f", VERSION));
+		app = new JFrame(String.format("Galaxia v%1.1f", VERSION));
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		app.add(this);
 		app.pack();
