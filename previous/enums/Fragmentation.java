@@ -1,6 +1,7 @@
 package enums;
 
 public enum Fragmentation {
+	Unknown(0),
     Unstable(1),
     SemiStable(2),
     Stable(3);
