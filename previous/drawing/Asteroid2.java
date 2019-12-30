@@ -8,7 +8,9 @@ import java.util.Random;
 
 public class Asteroid2 extends JPanel {
 
-    private JFrame frame;
+	private static final long serialVersionUID = 1L;
+
+	private JFrame frame;
 
     private int x = 200; private int y = 200;
     private int grade = 30;

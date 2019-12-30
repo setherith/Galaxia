@@ -8,7 +8,8 @@ import java.util.Random;
 
 public class Asteroid extends JPanel {
 
-    private JFrame frame;
+	private static final long serialVersionUID = 1L;
+	private JFrame frame;
 
     public void paintComponent(Graphics g) {
         DrawAsteroid(g, 200, 200, 30,100);

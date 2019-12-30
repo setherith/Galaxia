@@ -3,7 +3,9 @@ import java.awt.*;
 
 public class DrawRoids extends JPanel
 {
-    public static void main(String[] args) {
+	private static final long serialVersionUID = 1L;
+
+	public static void main(String[] args) {
         new DrawRoids();
     }
 

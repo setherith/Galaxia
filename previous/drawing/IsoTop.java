@@ -5,7 +5,8 @@ import java.awt.*;
 
 public class IsoTop extends JPanel {
 
-    private JFrame frame;
+	private static final long serialVersionUID = 1L;
+	private JFrame frame;
 
     public void paintComponent(Graphics g) {
         DrawGrid(g, 200, 200, -30);
