@@ -1,4 +1,4 @@
-package from.python;
+package gfx;
 
 import java.util.Random;
 

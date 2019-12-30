@@ -1,3 +1,4 @@
+package tests;
 import entities.Asteroid;
 import enums.Fragmentation;
 import enums.MapSize;

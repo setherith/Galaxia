@@ -1,4 +1,4 @@
-package drawing;
+package experimental;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,13 +6,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 
-public class Asteroid extends JPanel {
+public class Asteroid2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+
 	private JFrame frame;
 
+    private int x = 200; private int y = 200;
+    private int grade = 30;
+    private int size = 50;
+
     public void paintComponent(Graphics g) {
-        DrawAsteroid(g, 200, 200, 30,100);
+        DrawAsteroid(g, x, y, grade, size);
     }
 
     private void DrawAsteroid(Graphics g, int x, int y, int grade, int size) {
@@ -26,33 +31,36 @@ public class Asteroid extends JPanel {
             bearing += angle;
         }
 
-        g.drawPolyline(xs, ys, grade);
-        g.drawLine(xs[0], ys[0], xs[xs.length - 1], ys[ys.length - 1]);
+        g.setColor(Color.GRAY);
+        g.fillPolygon(xs, ys, grade);
     }
 
     public static void main(String[] args) {
-        new Asteroid();
+        new Asteroid2();
     }
 
     private void Blank(Graphics g) {
         g.clearRect(0, 0, getWidth(), getHeight());
     }
 
-    public Asteroid() {
-        frame = new JFrame("Test");
+    public Asteroid2() {
+        frame = new JFrame("Asteroid2");
         frame.add(this);
         frame.pack();
         frame.setSize(400, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         frame.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 Blank(getGraphics());
-                DrawAsteroid(getGraphics(), 200, 200, 30,100);
+                DrawAsteroid(getGraphics(), x, y, grade, size);
             }
         });
     }
+
+
 }
