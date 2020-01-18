@@ -1,9 +1,10 @@
 /buildings/
 /core/
 /entities/
-/enums/
 /experimental/
+/enums/
 /gfx/
+/imported/
+/scratch/
 /tests/
 /ui/
-/imported/
