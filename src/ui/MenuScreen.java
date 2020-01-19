@@ -3,6 +3,7 @@ package ui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.Random;
 
 import javax.swing.JFrame;
@@ -53,5 +54,8 @@ public class MenuScreen extends JPanel {
 
 			stars[i][0] += 1;
 		}
+		
+		Image mn = new MenuItem().Draw();
+		g.drawImage(mn, 10, 10, 400, 20, this);
 	}
 }
