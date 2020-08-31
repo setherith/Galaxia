@@ -1,6 +1,7 @@
 package core;
 
 import java.awt.image.DataBufferInt;
+import java.util.Random;
 
 public class Renderer {
 
@@ -14,8 +15,9 @@ public class Renderer {
     }
 
     public void clear() {
+    	Random r = new Random();
         for (int i = 0; i < p.length; i++) {
-            p[i] = 0;
+            p[i] = r.nextInt();
         }
     }
 
