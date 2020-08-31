@@ -8,17 +8,12 @@ import common.Generators;
 
 class GeneratorsTests {
 
-	private Generators g;
-	
-	public GeneratorsTests() {
-		g = new Generators();
-	}
-	
 	@Test
 	void OneHundredNames() {
 		for (int i = 0; i < 100; i++) {
-			String result = g.generateName();
+			String result = Generators.generateName();
 			System.out.println(result);
+			if (result.length() < 4) fail("Not long enough");
 		}
 	}
 
